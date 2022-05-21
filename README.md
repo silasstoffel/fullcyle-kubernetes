@@ -130,3 +130,27 @@ kubectl describe pod ${pod-name}
 # list replica set
 kubectl get replicaset
 ```
+
+## Service: Cluster IP
+
+See the service definition [here](./k8s/service.yaml)
+
+```shell
+kubectl apply -f k8s/service.yaml 
+```
+
+How view my started services? Run this command.
+
+```shell
+kubectl get services
+# or
+kubectl get svc
+```
+
+How access my application? We should use port redirect
+
+```shell
+# service/goserver-service = name of service
+kubectl port-forward service/goserver-service 8008:80
+#kubectl port-forward svc/goserver-service 8008:80
+```
