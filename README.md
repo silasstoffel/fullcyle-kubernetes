@@ -123,4 +123,10 @@ Use this command to Rollout / Rollback deployment
 #kubectl rollout undo deployment $deployment-name [--to-revision=${revision-number}]
 
 kubectl rollout undo deployment goserver
+
+#check image version in current version
+kubectl describe pod ${pod-name}
+
+# list replica set
+kubectl get replicaset
 ```
