@@ -179,3 +179,4 @@ To access API from Kubernetes you can run this command.
 kubectl proxy --port=$port-number
 # kubectl proxy --port=4001
 ```
+Access: `http://localhost:${port-number}`
