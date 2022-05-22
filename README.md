@@ -48,6 +48,10 @@ docker build -t silasstofel/hello-go -f docker/go/Dockerfile .
 docker run --rm -p 8080:80 silasstofel/hello-go
 
 docker push silasstofel/hello-go
+
+#docker push silasstofel/hello-go:v1.0
+#docker push silasstofel/hello-go:v1.1
+#docker push silasstofel/hello-go:latest
 ```
 
 ## Create POD
@@ -154,3 +158,15 @@ How access my application? We should use port redirect
 kubectl port-forward service/goserver-service 8008:80
 #kubectl port-forward svc/goserver-service 8008:80
 ```
+
+## Service: With param targetPort
+
+1. In [server.go](./server.go) file, change port of your application is running
+2. In [service.yaml](./k8s/service.yaml) file, add `targetPort` params with port of your container/application
+
+Run this command:
+
+```shell
+kubectl port-forward service/goserver-service 8008:80
+```
+To check, you can access this address http://localhost:8008
