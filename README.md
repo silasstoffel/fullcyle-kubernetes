@@ -170,3 +170,12 @@ Run this command:
 kubectl port-forward service/goserver-service 8008:80
 ```
 To check, you can access this address http://localhost:8008
+
+## Kubernetes API
+
+To access API from Kubernetes you can run this command.
+
+```shell
+kubectl proxy --port=$port-number
+# kubectl proxy --port=4001
+```
