@@ -180,3 +180,19 @@ kubectl proxy --port=$port-number
 # kubectl proxy --port=4001
 ```
 Access: `http://localhost:${port-number}`
+
+## Load Balancer
+
+Create service type [load balancer](./k8s/service-load-balancer.yaml)
+
+Apply
+
+```shell
+kubectl apply -f k8s/service-load-balancer.yaml 
+```
+
+In local environment it needs mapping port
+
+```shell
+kubectl port-forward service/goserver-load-balancer 8009:80
+```
