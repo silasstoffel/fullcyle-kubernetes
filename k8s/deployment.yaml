@@ -19,6 +19,12 @@ spec:
           image: "silasstofel/hello-go:v2.0"
           env:
             - name: NAME
-              value: "Silas Stoffel"
+              valueFrom:
+                configMapKeyRef:
+                  name: goserver-env
+                  key: NAME
             - name: AGE
-              value: "32"    
+              valueFrom:
+                configMapKeyRef:
+                  name: goserver-env
+                  key: AGE
