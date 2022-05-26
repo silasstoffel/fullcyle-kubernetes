@@ -230,3 +230,13 @@ kubectl apply -f k8s/configmap-env.yaml
 # apply new deployment
 kubectl apply -f k8s/deployment.yaml   
 ```
+### Example 3 (config map)
+
+Commits:
+
+[Change config map](https://github.com/silasstoffel/fullcyle-kubernetes/commit/d608f8a23be5d17d5a8e5977cb3f11d441ebce26)
+
+```shell
+# apply new deployment
+kubectl apply -f k8s/deployment.yaml   
+```
