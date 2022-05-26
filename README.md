@@ -196,3 +196,22 @@ In local environment it needs mapping port
 ```shell
 kubectl port-forward service/goserver-load-balancer 8009:80
 ```
+
+## Environment Vars
+
+Commits:
+
+[Definition env vars in service](https://github.com/silasstoffel/fullcyle-kubernetes/commit/d3a49ab5fb0e08f50253b2e2286f7d7489bfaee7)
+[Load from env vars](https://github.com/silasstoffel/fullcyle-kubernetes/commit/f42177156a26ed5842e1ab217c68f7e5dd56c742)
+
+
+```shell
+# build new docker image
+docker build -t silasstofel/hello-go:v2.0 -f ./docker/go/Dockerfile .
+
+# push to docker hub
+docker push silasstofel/hello-go:v2.0
+
+# apply new deployment
+kubectl apply -f k8s/deployment.yaml   
+```
