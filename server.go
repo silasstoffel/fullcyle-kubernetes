@@ -1,6 +1,8 @@
 package main
 
 import "net/http"
+import "os"
+import "fmt"
 
 func main() {
 	http.HandleFunc("/",  Hello)
@@ -8,5 +10,8 @@ func main() {
 }
 
  func Hello(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("<h1>Kubernetes</h1><p>v1.1</p>"))
+    name := os.Getenv("NAME")
+    age := os.Getenv("AGE")
+
+	fmt.Fprintf(w, "I'm %s and I'm %s years old", name, age)
  }
