@@ -199,6 +199,7 @@ kubectl port-forward service/goserver-load-balancer 8009:80
 
 ## Environment Vars
 
+### Example 1
 Commits:
 
 [Definition env vars in service](https://github.com/silasstoffel/fullcyle-kubernetes/commit/d3a49ab5fb0e08f50253b2e2286f7d7489bfaee7)
@@ -211,6 +212,20 @@ docker build -t silasstofel/hello-go:v2.0 -f ./docker/go/Dockerfile .
 
 # push to docker hub
 docker push silasstofel/hello-go:v2.0
+
+# apply new deployment
+kubectl apply -f k8s/deployment.yaml   
+```
+
+### Example 2 (config map)
+
+Commits:
+
+[Create config map](https://github.com/silasstoffel/fullcyle-kubernetes/commit/c0d2237241d28b83094c12b4a438fe1c3a9f46e6)
+
+```shell
+# apply config map
+kubectl apply -f k8s/configmap-env.yaml
 
 # apply new deployment
 kubectl apply -f k8s/deployment.yaml   
