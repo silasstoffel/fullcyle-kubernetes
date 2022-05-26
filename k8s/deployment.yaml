@@ -17,14 +17,17 @@ spec:
       containers:
         - name: goserver
           image: "silasstofel/hello-go:v2.0"
-          env:
-            - name: NAME
-              valueFrom:
-                configMapKeyRef:
-                  name: goserver-env
-                  key: NAME
-            - name: AGE
-              valueFrom:
-                configMapKeyRef:
-                  name: goserver-env
-                  key: AGE
+          envFrom:
+            - configMapRef: 
+                name: goserver-env
+          #env:
+          #  - name: NAME
+          #    valueFrom:
+          #      configMapKeyRef:
+          #        name: goserver-env
+          #        key: NAME
+          #  - name: AGE
+          #    valueFrom:
+          #      configMapKeyRef:
+          #        name: goserver-env
+          #        key: AGE
