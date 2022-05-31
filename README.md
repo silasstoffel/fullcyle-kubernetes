@@ -240,3 +240,20 @@ Commits:
 # apply new deployment
 kubectl apply -f k8s/deployment.yaml   
 ```
+
+### Example 4 (config map with volumes)
+
+[Commit Go source](https://github.com/silasstoffel/fullcyle-kubernetes/commit/5dad6b740246f0b5a91b7c48859ab8cf0a323c6c)
+[Commit Create ConfigMap](https://github.com/silasstoffel/fullcyle-kubernetes/commit/5dad6b740246f0b5a91b7c48859ab8cf0a323c6c)
+
+```shell
+docker build -t silasstofel/hello-go:v3.1 -f docker/go/Dockerfile .
+
+docker push silasstofel/hello-go:v3.1
+
+kubectl apply -f k8s/configmap-heroes.yaml
+
+kubectl apply -f k8s/deployment.yaml
+
+kubectl port-forward service/goserver-service 8008:80
+```
