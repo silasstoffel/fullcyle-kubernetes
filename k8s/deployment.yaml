@@ -16,10 +16,13 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: "silasstofel/hello-go:v2.0"
+          image: "silasstofel/hello-go:v3.1"
           envFrom:
             - configMapRef: 
                 name: goserver-env
+          volumeMounts:
+            - mountPath: "/go/heroes"
+              name: conf-volume-heroes      
           #env:
           #  - name: NAME
           #    valueFrom:
@@ -31,3 +34,10 @@ spec:
           #      configMapKeyRef:
           #        name: goserver-env
           #        key: AGE
+      volumes:
+        - name: conf-volume-heroes
+          configMap:
+            name: configmap-heroes
+            items:
+              - key: heroes
+                path: "heroes.txt"
