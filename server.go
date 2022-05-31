@@ -3,9 +3,12 @@ package main
 import "net/http"
 import "os"
 import "fmt"
+import "io/ioutil"
+import "log"
 
 func main() {
-	http.HandleFunc("/",  Hello)
+    http.HandleFunc("/configmap",  ConfigMap)
+	http.HandleFunc("/",  Hello)    
 	http.ListenAndServe(":8000", nil)
 }
 
@@ -14,4 +17,14 @@ func main() {
     age := os.Getenv("AGE")
 
 	fmt.Fprintf(w, "I'm %s and I'm %s years old", name, age)
+ }
+
+ func ConfigMap(w http.ResponseWriter, r *http.Request) {
+    file, err := ioutil.ReadFile("/go/heroes/heroes.txt")
+
+    if err != nil {
+        log.Fatalf("Error reading file: ", err)
+    }
+
+	fmt.Fprintf(w, "Heroes: %s", string(file))
  }
