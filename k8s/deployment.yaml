@@ -16,10 +16,12 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: "silasstofel/hello-go:v3.1"
+          image: "silasstofel/hello-go:v3.5"
           envFrom:
             - configMapRef: 
                 name: goserver-env
+            - secretRef:
+                name: goserver-secret    
           volumeMounts:
             - mountPath: "/go/heroes"
               name: conf-volume-heroes      
