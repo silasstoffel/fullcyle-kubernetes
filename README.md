@@ -258,3 +258,19 @@ kubectl apply -f k8s/deployment.yaml
 
 kubectl port-forward service/goserver-service 8008:80
 ```
+
+### Example 4 (Secrets)
+
+[Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/8e38ac97edbbd29c281b1ec4c8bcf0867ecd7305)
+
+```shell
+docker build -t silasstofel/hello-go:v3.5 -f docker/go/Dockerfile .
+
+docker push silasstofel/hello-go:v3.5
+
+kubectl apply -f k8s/secret.yaml
+
+kubectl apply -f k8s/deployment.yaml
+
+kubectl port-forward service/goserver-service 8008:80
+```
