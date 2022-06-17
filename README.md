@@ -40,6 +40,14 @@ kubectl cluster-info --context kind-fullcycle-k8s
 kubectl get nodes
 ```
 
+## Change Context
+
+```shell
+kubectl config use-context k8s-dev
+
+kubectl config use-context kind-fullcycle-k8s
+```
+
 ## Create image (golang) and push dockerhub
 
 ```shell
