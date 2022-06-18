@@ -301,3 +301,14 @@ kubectl port-forward service/goserver-service 8008:80
 
 Check this endpoint http://localhost:8008/healthz, you should consider that 0-30 seconds is Ok (http code 200) and after 30 seconds the response is http code 500. 
 
+# Liveness
+
+[Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/88501e3a09be49690efb33b0b3565c5bd15f15e8)
+
+```shell
+kubectl apply -f k8s/deployment.yaml
+
+watch -n1 kubectl get pods
+
+kubectl port-forward service/goserver-service 8008:80
+```
