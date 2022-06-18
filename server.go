@@ -5,8 +5,12 @@ import "os"
 import "fmt"
 import "io/ioutil"
 import "log"
+import "time"
+
+var startedAt = time.Now()
 
 func main() {
+    http.HandleFunc("/healthz",  Healthz)
     http.HandleFunc("/configmap",  ConfigMap)
     http.HandleFunc("/secret",  Secret)
 	http.HandleFunc("/",  Hello)    
@@ -35,4 +39,18 @@ func main() {
     }
 
 	fmt.Fprintf(w, "Heroes: %s", string(file))
+ }
+
+ func Healthz(w http.ResponseWriter, r *http.Request) {
+    duration := time.Since(startedAt);
+    message := "Ok"
+    code := 200
+
+    if (duration.Seconds() > 30) {
+        message = fmt.Sprintf("Duration: %v", duration.Seconds())
+        code = 500;
+    }
+
+    w.WriteHeader(code)
+    w.Write([]byte(message))
  }
