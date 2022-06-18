@@ -17,6 +17,16 @@ spec:
       containers:
         - name: goserver
           image: "silasstofel/hello-go:v3.7"
+          
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8000
+            periodSeconds: 10
+            failureThreshold: 5
+            successThreshold: 1
+            timeoutSeconds: 2
+                      
           envFrom:
             - configMapRef: 
                 name: goserver-env
@@ -24,7 +34,7 @@ spec:
                 name: goserver-secret    
           volumeMounts:
             - mountPath: "/go/heroes"
-              name: conf-volume-heroes      
+              name: conf-volume-heroes                
           #env:
           #  - name: NAME
           #    valueFrom:
