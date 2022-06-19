@@ -42,14 +42,16 @@ func main() {
  }
 
  func Healthz(w http.ResponseWriter, r *http.Request) {
-    duration := time.Since(startedAt);
+    //duration := time.Since(startedAt);
     message := "Ok"
     code := 200
-
+    
+    /*
     if (duration.Seconds() > 30 || duration.Seconds() <= 10) {
         message = fmt.Sprintf("Duration: %v", duration.Seconds())
         code = 500;
     }
+    */
 
     w.WriteHeader(code)
     w.Write([]byte(message))
