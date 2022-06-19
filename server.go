@@ -46,7 +46,7 @@ func main() {
     message := "Ok"
     code := 200
 
-    if (duration.Seconds() > 30) {
+    if (duration.Seconds() > 30 || duration.Seconds() <= 10) {
         message = fmt.Sprintf("Duration: %v", duration.Seconds())
         code = 500;
     }
