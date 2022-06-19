@@ -326,3 +326,15 @@ kubectl apply -f k8s/deployment.yaml
 
 kubectl port-forward service/goserver-service 8008:80
 ```
+
+# ReadinessProbe and LivenessProbe Together
+
+[Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/07faecef101184aea961db34f906404a20f6f750)
+
+```shell
+kubectl apply -f k8s/deployment.yaml
+
+watch -n1 kubectl get pods
+
+kubectl port-forward service/goserver-service 8008:80
+```
