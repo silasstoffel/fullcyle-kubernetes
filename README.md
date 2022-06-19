@@ -364,3 +364,25 @@ docker push silasstofel/hello-go:v3.9
 
 kubectl apply -f k8s/deployment.yaml
 ```
+
+# Install Metric Server
+
+[Docs](https://github.com/kubernetes-sigs/metrics-server)
+
+```shell
+cd k8s
+
+wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/high-availability.yaml
+
+mv high-availability.yaml metrics-server-non-tls.yaml
+
+# you must add argument --kubelet-insecure-tls for run in kind without TLS
+
+cd ..
+
+kubectl apply -f k8s/metrics-server-non-tls.yaml
+
+# run this command to check out if it is available in API and find by v1beta1.metrics.k8s.io 
+kubectl get apiservices
+```
+[Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/eb46a391817d87f7a16d894ea78ec5ad53fdaae1)
