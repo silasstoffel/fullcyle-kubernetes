@@ -350,3 +350,17 @@ watch -n1 kubectl get pods
 
 kubectl port-forward service/goserver-service 8008:80
 ```
+
+# Change LivenessProbe, StartupProbe and ReadinessProbe in Application
+
+Changed conditions to continue the course without resources of LivenessProbe, StartupProbe and ReadinessProbe.
+
+[Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/91a1fab660e39a0b3b16563b626273158eb50013)
+ 
+```shell
+docker build -t silasstofel/hello-go:v3.9 -f docker/go/Dockerfile .
+
+docker push silasstofel/hello-go:v3.9
+
+kubectl apply -f k8s/deployment.yaml
+```
