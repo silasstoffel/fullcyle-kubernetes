@@ -301,7 +301,7 @@ kubectl port-forward service/goserver-service 8008:80
 
 Check this endpoint http://localhost:8008/healthz, you should consider that 0-30 seconds is Ok (http code 200) and after 30 seconds the response is http code 500. 
 
-# Liveness
+# LivenessProbe
 
 [Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/88501e3a09be49690efb33b0b3565c5bd15f15e8)
 
@@ -309,6 +309,20 @@ Check this endpoint http://localhost:8008/healthz, you should consider that 0-30
 kubectl apply -f k8s/deployment.yaml
 
 watch -n1 kubectl get pods
+
+kubectl port-forward service/goserver-service 8008:80
+```
+
+# ReadinessProbe
+
+[Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/708853669f0e8a912ae3956dc9c3b6eaa6ad70f5)
+
+```shell
+docker build -t silasstofel/hello-go:v3.8 -f docker/go/Dockerfile .
+
+docker push silasstofel/hello-go:v3.8
+
+kubectl apply -f k8s/deployment.yaml
 
 kubectl port-forward service/goserver-service 8008:80
 ```
