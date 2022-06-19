@@ -338,3 +338,15 @@ watch -n1 kubectl get pods
 
 kubectl port-forward service/goserver-service 8008:80
 ```
+
+# StartupProbe
+
+[Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/9ebf61b7b90827b6a9f9ed2efc8d407f6c438ab5)
+
+```shell
+kubectl apply -f k8s/deployment.yaml
+
+watch -n1 kubectl get pods
+
+kubectl port-forward service/goserver-service 8008:80
+```
