@@ -386,3 +386,14 @@ kubectl apply -f k8s/metrics-server-non-tls.yaml
 kubectl get apiservices
 ```
 [Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/eb46a391817d87f7a16d894ea78ec5ad53fdaae1)
+
+# Resources
+
+
+[Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/896cc2c1d9520e6a8533c6ed604d8a739cb390c4)
+
+```shell
+kubectl apply -f k8s/deployment.yaml
+
+kubectl top pod goserver-654d9c9964-99fln
+```
