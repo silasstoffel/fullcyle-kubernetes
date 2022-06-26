@@ -10,7 +10,8 @@ import "time"
 var startedAt = time.Now()
 
 func main() {
-    http.HandleFunc("/healthz",  Healthz)
+    http.HandleFunc("/healthz",  HealthzStressTest)
+    http.HandleFunc("/healthz-success",  HealthzSuccess)
     http.HandleFunc("/configmap",  ConfigMap)
     http.HandleFunc("/secret",  Secret)
 	http.HandleFunc("/",  Hello)    
@@ -41,7 +42,7 @@ func main() {
 	fmt.Fprintf(w, "Heroes: %s", string(file))
  }
 
- func Healthz(w http.ResponseWriter, r *http.Request) {
+ func HealthzSuccess(w http.ResponseWriter, r *http.Request) {
     //duration := time.Since(startedAt);
     message := "Ok"
     code := 200
@@ -55,4 +56,16 @@ func main() {
 
     w.WriteHeader(code)
     w.Write([]byte(message))
+ }
+
+ func HealthzStressTest(w http.ResponseWriter, r *http.Request) {
+    duration := time.Since(startedAt)
+ 
+    if duration.Seconds() < 10 {
+      w.WriteHeader(500)
+      w.Write([]byte(fmt.Sprintf("Duration: %v", duration.Seconds())))
+    } else {
+      w.WriteHeader(200)
+      w.Write([]byte("ok"))
+    }
  }
