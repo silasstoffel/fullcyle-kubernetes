@@ -389,11 +389,20 @@ kubectl get apiservices
 
 # Resources
 
-
 [Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/896cc2c1d9520e6a8533c6ed604d8a739cb390c4)
 
 ```shell
 kubectl apply -f k8s/deployment.yaml
 
 kubectl top pod goserver-654d9c9964-99fln
+```
+
+# HPA
+
+[HPA file](https://github.com/silasstoffel/fullcyle-kubernetes/commit/cd938558982a8602f5c0381af0945a4f95ee7c8e)
+
+```shell
+kubectl apply -f k8s/hpa.yaml
+
+kubectl get hpa
 ```
