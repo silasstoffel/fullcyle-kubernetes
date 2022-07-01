@@ -406,3 +406,30 @@ kubectl apply -f k8s/hpa.yaml
 
 kubectl get hpa
 ```
+
+# Stress Test
+
+[HPA file](https://github.com/silasstoffel/fullcyle-kubernetes/commit/b370a7671f72c206db6f9ceef4c75821efbe43da)
+
+```shell
+docker build -t silasstofel/hello-go:v3.10 -f docker/go/Dockerfile .
+
+docker push silasstofel/hello-go:v3.10
+```
+
+Install [fortio](https://github.com/fortio/fortio)
+
+Use must use host of the service (load balancer): http://goserver-service/healthz
+
+```shell
+# Run image with kubectl
+kubectl run -it fortio --rm --image=fortio/fortio -- load -qps 900 -t 240s -c 80 "http://goserver-service/healthz"
+```
+
+Monitoring HPA
+
+```shell
+watch -n1 kubectl get pods
+
+watch -n1 kubectl get hpa
+```
