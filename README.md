@@ -433,3 +433,52 @@ watch -n1 kubectl get pods
 
 watch -n1 kubectl get hpa
 ```
+
+# Persistent Volume
+
+[Commit](https://github.com/silasstoffel/fullcyle-kubernetes/commit/4ab4bf07c2ea7bf1c8def37d5689c22477ad6eac)
+
+```shell
+kubectl apply -f k8s/persistent-volume.yaml
+
+kubectl get pvc
+#or
+kubectl get persistentvolumeclaims
+
+#kubectl get storageclasses
+
+kubectl apply -f k8s/deployment.yaml 
+
+# To get volume name
+kubectl get pvc
+
+#NAME           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+#goserver-pv1   Bound    pvc-3a87b670-3026-41e4-a280-8b2e69760252   2Gi        RWO            standard       23m
+
+kubectl get pods
+
+#NAME                        READY   STATUS    RESTARTS   AGE
+#goserver-7cd785cf9d-fd5kr   1/1     Running   0          2m57s
+#goserver-7cd785cf9d-zr7gx   1/1     Running   0          2m57s
+
+kubectl exec -it goserver-7cd785cf9d-zr7gx -- bash
+
+cd pvc1
+
+touch custom-file.txt
+
+exit
+
+kubectl delete pod goserver-7cd785cf9d-zr7gx
+
+kubectl get pods
+
+#NAME                        READY   STATUS    RESTARTS   AGE
+#goserver-7cd785cf9d-b78f4   1/1     Running   0          14s
+
+kubectl exec -it goserver-7cd785cf9d-b78f4 -- bash
+
+cd pvc1 
+
+# must be able to show "custom-file.txt"
+```
