@@ -60,7 +60,11 @@ spec:
                 name: goserver-secret    
           volumeMounts:
             - mountPath: "/go/heroes"
-              name: conf-volume-heroes                
+              name: conf-volume-heroes
+
+            - mountPath: "/go/pvc1"
+              name: go-server-persistent-volume 
+
           #env:
           #  - name: NAME
           #    valueFrom:
@@ -79,3 +83,6 @@ spec:
             items:
               - key: heroes
                 path: "heroes.txt"
+        - name: go-server-persistent-volume
+          persistentVolumeClaim:
+            claimName: goserver-pv1          
