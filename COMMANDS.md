@@ -14,3 +14,20 @@ kubectl config get-contexts
 
 kubectl config use-context kind-fullcycle-k8s
 ```
+
+### Access PODs
+
+```shell
+#List pods name
+kubectl get pods    
+
+NAME                        READY   STATUS    RESTARTS   AGE
+goserver-7cd785cf9d-m7n2k   1/1     Running   0          2m21s
+goserver-7cd785cf9d-tk7sf   1/1     Running   0          14h
+mysql-0                     1/1     Running   0          13h
+mysql-1                     1/1     Running   0          13h
+mysql-2                     1/1     Running   0          13h
+
+# Access by name (goserver-7cd785cf9d-tk7sf )
+kubectl exec -it goserver-7cd785cf9d-tk7sf -- bash
+```

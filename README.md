@@ -482,3 +482,7 @@ cd pvc1
 
 # must be able to show "custom-file.txt"
 ```
+
+Summary
+
+- [StateFul + Headless ](./docs/STATEFULSET_HEADLESS.md)
