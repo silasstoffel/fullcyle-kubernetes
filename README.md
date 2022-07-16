@@ -486,3 +486,4 @@ cd pvc1
 Summary
 
 - [StateFul + Headless ](./docs/STATEFULSET_HEADLESS.md)
+- [Dynamic volumes with Statefulset](./docs/DYNAMIC_VOLUME_STATEFULSET.MD)
