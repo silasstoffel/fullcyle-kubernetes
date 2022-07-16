@@ -46,5 +46,5 @@ ping mysql-1.mysql-h #slave1
 ping mysql-2.mysql-h #slave2
 
 ```
-[Go Back](https://github.com/silasstoffel/fullcyle-kubernetes)
 ___
+[Go Back](https://github.com/silasstoffel/fullcyle-kubernetes)
