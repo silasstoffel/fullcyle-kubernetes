@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  labels: 
+    app: mysql
+spec:
+  serviceName: mysql-h
+  #podManagementPolicy:  Parallel
+  selector:
+    matchLabels:
+      app: mysql
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: k8s-mysql-pass
+
