@@ -6,5 +6,9 @@ ___
 
 Write your content here
 
+```shell
+ls -la
+```
+
 ___
 [Go Back](https://github.com/silasstoffel/fullcyle-kubernetes)
