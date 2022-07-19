@@ -483,8 +483,9 @@ cd pvc1
 # must be able to show "custom-file.txt"
 ```
 
-Summary
+### Menu
 
 - [StateFul + Headless](./docs/STATEFULSET_HEADLESS.md)
 - [Dynamic volumes with Statefulset](./docs/DYNAMIC_VOLUME_STATEFULSET.MD)
 - [Ingress](./docs/INGRESS.MD)
+- [Namespace and Context](./docs/NAMESPACE.MD)
