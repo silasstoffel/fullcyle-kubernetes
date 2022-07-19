@@ -486,6 +486,6 @@ cd pvc1
 ### Menu
 
 - [StateFul + Headless](./docs/STATEFULSET_HEADLESS.md)
-- [Dynamic volumes with Statefulset](./docs/DYNAMIC_VOLUME_STATEFULSET.MD)
-- [Ingress](./docs/INGRESS.MD)
-- [Namespace and Context](./docs/NAMESPACE.MD)
+- [Dynamic volumes with Statefulset](./docs/DYNAMIC_VOLUME_STATEFULSET.md)
+- [Ingress](./docs/INGRESS.md)
+- [Namespace and Context](./docs/NAMESPACE.md)
