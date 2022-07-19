@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-ns
+spec:
+  selector:
+    matchLabels:
+      app: server-ns
+  template:
+    metadata:
+      labels:
+        app: server-ns
+    spec:
+      containers:
+      - name: server-ns
+        image: wesleywillians/hello-express
+        resources:
+          limits:
+            memory: "100Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
