@@ -490,3 +490,4 @@ cd pvc1
 - [Ingress](./docs/INGRESS.md)
 - [Namespace and Context](./docs/NAMESPACE.md)
 - [Service Account](./docs/SERVICE_ACCOUNT.md)
+- [Cluster Role](./docs/SERVICE_ACCOUNT.md)
