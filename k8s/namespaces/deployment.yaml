@@ -11,6 +11,7 @@ spec:
       labels:
         app: server-ns
     spec:
+      serviceAccount: server-ns
       containers:
       - name: server-ns
         image: wesleywillians/hello-express
